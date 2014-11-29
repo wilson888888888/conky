@@ -1,0 +1,93 @@
+background yes
+    use_xft yes
+    xftfont HandelGotD:size=9
+    xftalpha 0.5
+    update_interval 4.0
+    total_run_times 0
+    own_window yes
+    own_window_type normal
+    own_window_argb_visual yes
+    own_window_argb_value 255
+    own_window_transparent yes
+    own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+    double_buffer yes
+    minimum_size 200 1000
+    maximum_width 200
+    draw_shades no
+    draw_outline no
+    draw_borders no
+    draw_graph_borders yes
+    default_color grey
+    default_shade_color red
+    default_outline_color green
+    alignment top_right
+    gap_x 20
+    gap_y 40
+    no_buffers yes
+    uppercase no
+    cpu_avg_samples 2
+    override_utf8_locale no
+    text_buffer_size 1024    
+ 
+TEXT
+
+
+
+${font sans-serif:bold:size=9}DATE ${hr 2}
+${alignc 32}${font Trebuchet MS:size=24}${time %H:%M}${font}
+${alignc}${time %a %d %b %Y}
+ 
+${font sans-serif:bold:size=9}SYSTEM ${hr 2}
+${font sans-serif:normal:size=9}$sysname $kernel $alignr $machine
+Host:$alignr$nodename
+Uptime:$alignr$uptime
+File System: $alignr${fs_type}
+ 
+${font sans-serif:bold:size=9}PROCESSORS ${hr 2}
+${font sans-serif:normal:size=9}${cpugraph cpu1}
+CPU1: ${cpu cpu1}% ${cpubar cpu1}
+CPU2: ${cpu cpu2}% ${cpubar cpu2}
+CPU3: ${cpu cpu3}% ${cpubar cpu3}
+CPU4: ${cpu cpu4}% ${cpubar cpu4}
+CPU5: ${cpu cpu5}% ${cpubar cpu5}
+CPU6: ${cpu cpu6}% ${cpubar cpu6}
+CPU7: ${cpu cpu7}% ${cpubar cpu7}
+CPU8: ${cpu cpu8}% ${cpubar cpu8}
+ 
+${top name 1}${alignr}${top cpu 1} %
+${top name 2}${alignr}${top cpu 2} %
+${top name 3}${alignr}${top cpu 3} %
+${top name 4}${alignr}${top cpu 4} %
+${top name 5}${alignr}${top cpu 5} %
+
+Temperature: ${acpitemp}C
+ 
+${font sans-serif:bold:size=9}MEMORY ${hr 2}
+${font sans-serif:normal:size=9}Ram: $alignc $mem / $memmax $alignr 
+$memperc%
+$membar
+ 
+${top_mem name 1}${alignr}${top mem 1} %
+${top_mem name 2}${alignr}${top mem 2} %
+${top_mem name 3}${alignr}${top mem 3} %
+${top_mem name 4}${alignr}${top mem 4} %
+${top_mem name 5}${alignr}${top mem 5} %
+ 
+${font sans-serif:normal:size=9}Swap: $alignc ${swap} / ${swapmax} 
+$alignr ${swapperc}%
+${swapbar}
+ 
+${font sans-serif:bold:size=9}DISK ${hr 2}
+${font sans-serif:normal:size=9} $alignc ${fs_used /} / ${fs_size /} 
+$alignr ${fs_used_perc /}%
+${fs_bar /}
+${font sans-serif:normal:size=9}${diskiograph}
+${font sans-serif:normal:size=9}Disk I/O: ${diskio}
+
+${font sans-serif:bold:size=9}NETWORK ${hr 2}
+${font sans-serif:normal:size=9}IP address: $alignr ${addr enp3s0}
+${downspeedgraph enp3s0}
+Down: $alignc ${downspeed enp3s0} $alignr Total: ${totaldown 
+enp3s0}
+${upspeedgraph enp3s0}
+Up: $alignc ${upspeed enp3s0} $alignr Total: ${totalup enp3s0}
